@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "bar_app_data";
-const ADMIN_PASSWORD = "1234";
+const ADMIN_PASSWORD = "12345";
 
 const MENU = [
   // CERVEZAS
@@ -16,7 +16,7 @@ const MENU = [
   { id: 8, nombre: "Corona", precio: 9000, categoria: "Cervezas" },
   { id: 9, nombre: "Los Cuates", precio: 5000, categoria: "Cervezas" },
   { id: 10, nombre: "Cuates Preparado", precio: 9000, categoria: "Cervezas" },
-  { id: 11, nombre: "Like", precio: 5000, categoria: "Cervezas" },
+  { id: 11, nombre: "Likee", precio: 5000, categoria: "Cervezas" },
   
   // COCTELES
   { id: 12, nombre: "Mojito Cubano", precio: 15000, categoria: "Cocteles" },
