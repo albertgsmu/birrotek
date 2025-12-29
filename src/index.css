@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap');
+
+:root {
+  /* Paleta Neón Miami Vice */
+  --neon-pink: #FF006E;
+  --neon-cyan: #00F5FF;
+  --neon-purple: #8B00FF;
+  --neon-yellow: #FFFF00;
+  --neon-orange: #FF4500;
+  --dark-bg: #0a0015;
+  --dark-card: #1a0a2e;
+  --grid-color: #2d1b69;
+  
+  font-family: 'Rajdhani', sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  
+  color: var(--neon-cyan);
+  background-color: var(--dark-bg);
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 8px;
+  min-width: 320px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: 
+    linear-gradient(0deg, transparent 24%, var(--grid-color) 25%, var(--grid-color) 26%, transparent 27%, transparent 74%, var(--grid-color) 75%, var(--grid-color) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, var(--grid-color) 25%, var(--grid-color) 26%, transparent 27%, transparent 74%, var(--grid-color) 75%, var(--grid-color) 76%, transparent 77%, transparent),
+    radial-gradient(circle at 50% 0%, var(--neon-purple) 0%, var(--dark-bg) 70%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  background-position: 0 0, 0 0, 0 0;
+}
+
+/* Efecto de escaneo futurista más sutil */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--neon-cyan) 50%, 
+    transparent);
+  animation: scan 6s linear infinite;
+  z-index: 9999;
+  box-shadow: 0 0 10px var(--neon-cyan);
+  opacity: 0.5;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Títulos más compactos */
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8em;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0 0 5px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan), var(--neon-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px var(--neon-pink)) 
+          drop-shadow(0 0 15px var(--neon-cyan));
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--neon-yellow);
+  text-shadow: 
+    0 0 8px var(--neon-yellow),
+    0 0 15px var(--neon-orange);
+  margin: 8px 0;
+}
+
+h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  letter-spacing: 1px;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
+  margin: 8px 0;
+}
+
+p {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: rgba(0, 245, 255, 0.9);
+  margin: 5px 0;
+}
+
+/* Botones optimizados para táctil */
+button {
+  border-radius: 0;
+  border: 2px solid var(--neon-cyan);
+  padding: 12px 16px;
+  min-height: 48px; /* Tamaño mínimo para touch */
+  font-size: 0.95em;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(0, 245, 255, 0.1);
+  color: var(--neon-cyan);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  box-shadow: 
+    0 0 8px var(--neon-cyan),
+    inset 0 0 8px rgba(0, 245, 255, 0.2);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(0, 245, 255, 0.4), 
+    transparent);
+  transition: left 0.4s;
+}
+
+button:active {
+  transform: scale(0.96);
+  box-shadow: 
+    0 0 15px var(--neon-pink),
+    inset 0 0 15px rgba(255, 0, 110, 0.5);
+}
+
+button:active::before {
+  left: 100%;
+}
+
+/* Inputs más manejables */
+input {
+  border-radius: 0;
+  border: 2px solid var(--neon-purple);
+  border-left: 3px solid var(--neon-cyan);
+  padding: 12px 10px;
+  min-height: 48px;
+  font-size: 1em;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+  background: rgba(26, 10, 46, 0.8);
+  color: var(--neon-cyan);
+  transition: all 0.2s ease;
+  box-shadow: 
+    0 0 8px rgba(139, 0, 255, 0.5),
+    inset 0 0 8px rgba(0, 245, 255, 0.1);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  border-left-color: var(--neon-pink);
+  box-shadow: 
+    0 0 15px var(--neon-cyan),
+    0 0 30px var(--neon-purple),
+    inset 0 0 15px rgba(0, 245, 255, 0.2);
+}
+
+input::placeholder {
+  color: rgba(139, 0, 255, 0.6);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+}
+
+/* Contenedores compactos */
+div {
+  background: linear-gradient(135deg, 
+    rgba(26, 10, 46, 0.9) 0%, 
+    rgba(10, 0, 21, 0.95) 100%);
+  border: 2px solid var(--neon-purple);
+  border-left: 3px solid var(--neon-cyan);
+  border-top: 1px solid var(--neon-pink);
+  padding: 12px;
+  margin: 8px 0;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.8),
+    inset 0 0 15px rgba(139, 0, 255, 0.1),
+    0 0 8px rgba(0, 245, 255, 0.3);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--dark-bg);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+div::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--dark-bg);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+/* Scrollbars más delgados */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-card);
+  border-left: 1px solid var(--neon-purple);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+  border-radius: 0;
+  box-shadow: 0 0 6px var(--neon-cyan);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-pink), var(--neon-orange));
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Efecto glitch reducido */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.activo {
+  border-color: var(--neon-pink) !important;
+  background: linear-gradient(135deg, 
+    rgba(255, 0, 110, 0.2) 0%, 
+    rgba(139, 0, 255, 0.2) 100%) !important;
+  box-shadow: 
+    0 0 15px var(--neon-pink),
+    0 0 30px var(--neon-purple),
+    inset 0 0 15px rgba(255, 0, 110, 0.3) !important;
+  animation: glitch 0.3s infinite;
+}
+
+/* Texto destacado más pequeño */
+span {
+  color: var(--neon-yellow);
+  font-weight: 700;
+  text-shadow: 
+    0 0 8px var(--neon-yellow),
+    0 0 15px var(--neon-orange);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95em;
+}
+
+/* Divisores más sutiles */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--neon-cyan) 30%, 
+    var(--neon-pink) 50%, 
+    var(--neon-cyan) 70%, 
+    transparent);
+  margin: 15px 0;
+  box-shadow: 0 0 6px var(--neon-cyan);
+}
+
+/* Animación de entrada más rápida */
+@keyframes entrada-cyber {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+#root > * {
+  animation: entrada-cyber 0.4s ease-out;
+}
+
+/* Mejoras para touch */
+* {
+  -webkit-tap-highlight-color: rgba(0, 245, 255, 0.2);
+  -webkit-touch-callout: none;
+}
+
+/* Áreas de scroll limitadas en altura */
+.scroll-area {
+  max-height: 40vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Espaciado consistente */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Grid más compacto para botones */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+/* Flex para alineación */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Clases de utilidad para espaciado */
+.mb-sm { margin-bottom: 8px; }
+.mb-md { margin-bottom: 12px; }
+.mb-lg { margin-bottom: 16px; }
+.p-sm { padding: 8px; }
+.p-md { padding: 12px; }
+
+/* Optimización para pantallas pequeñas */
+@media (max-width: 380px) {
+  h1 {
+    font-size: 1.5em;
+    letter-spacing: 1px;
+  }
+  
+  button {
+    font-size: 0.85em;
+    padding: 10px 12px;
+  }
+  
+  body {
+    padding: 5px;
+  }
+  
+  div {
+    padding: 10px;
+    margin: 6px 0;
+  }
+}
